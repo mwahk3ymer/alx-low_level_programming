@@ -1,2 +1,2 @@
 #!/bin/bash
-nasm -f elf64 -g -F stabs ${CFILE%.c}.s ${CFILE}
+gcc -S -masm=intel $CFILE -o ${CFILE%.c}.s
