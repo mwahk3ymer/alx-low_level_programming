@@ -1,28 +1,27 @@
+#include<stddef.h>
 /**
- * cap_string - Capitalizes all words of a string.
- * @s: The string to capitalize.
+ * cap_string - Capitalizes all words in a given string
+ * @str: the input string to be capitalized
  *
- * Return: The capitalized string.
+ * Return: a pointer to the capitalized string
  */
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
 int i;
-if(s == NULL)
-return(NULL);
 
-for (i = 0; s[i] != '\0'; i++)
+if (str == NULL)
+return (NULL);
+
+for (i = 0; str[i] != '\0'; i++)
 {
-if (i == 0 || s[i - 1] == ' ' || s[i - 1] == '\t' ||
-s[i - 1] == '\n' || s[i - 1] == ',' ||
-s[i - 1] == ';' || s[i - 1] == '.' ||
-s[i - 1] == '!' || s[i - 1] == '?' ||
-s[i - 1] == '"' || s[i - 1] == '(' ||
-s[i - 1] == ')' || s[i - 1] == '{' ||
-s[i - 1] == '}')
+if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '\t' ||
+str[i - 1] == '\n' || str[i - 1] == ',' || str[i - 1] == ';' ||
+str[i - 1] == '.' || str[i - 1] == '!' || str[i - 1] == '?' ||
+str[i - 1] == '"' || str[i - 1] == '(' || str[i - 1] == ')' ||
+str[i - 1] == '{' || str[i - 1] == '}')
 {
-s[i] = s[i] - 32;
+str[i] = toupper(str[i]);
 }
 }
-
-return (s);
+return (str);
 }
