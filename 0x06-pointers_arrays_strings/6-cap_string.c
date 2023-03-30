@@ -8,9 +8,6 @@ char *cap_string(char *s)
 {
 int i;
 
-if (s == NULL)
-return (NULL);
-
 for (i = 0; s[i] != '\0'; i++)
 {
 if (i == 0 || s[i - 1] == ' ' || s[i - 1] == '\t' ||
