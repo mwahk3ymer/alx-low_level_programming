@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * prints_arguments - prints all ag
+ * print_arguments - prints all ag
  * @argc: num of arg
  * @argv: array off arg
  */
