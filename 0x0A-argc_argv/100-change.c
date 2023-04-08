@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * main - prinst min mum of coins
@@ -10,6 +11,8 @@
  */
 int main(int argc, char *argv[])
 {
+	int cents, j, result;
+	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
@@ -17,9 +20,8 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	int cents = atoi(argv[1]);
-	int coins [] = {25, 10, 5, 2, 1};
-	int num_coins = 0;
+	cents = atoi(argv[1]);
+	result = 0;
 
 	if (cents < 0)
 	{
@@ -27,15 +29,15 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 
-	for (int i = 0; i < 5; i++)
+	for (j = 0; j < 5 && cents >= 0 ; j++)
 	{
-		while (cents >= coins[i])
+		while (cents >= coins[j])
 		{
-			num_coins++;
-			cents -= coins[i];
+			result++;
+			cents -= coins[j];
 		}
 	}
 
-	printf("%d\n", num_coins);
+	printf("%d\n", result);
 	return (0);
 }
