@@ -2,12 +2,9 @@
 /**
  * _puts - prinst as string, followed by new line to stdout
  * @str: string to print
+ * Return :on succes 1
  */
-void _puts(char *str)
+int _putchar(char c)
 {
-	while (*str != '\0')
-	{
-		_putchar(*str++);
-	}
-	_putchar('\n');
+	return (write(1, &c, 1));
 }
