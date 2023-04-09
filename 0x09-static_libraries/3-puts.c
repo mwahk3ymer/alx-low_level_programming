@@ -1,13 +1,13 @@
 #include "main.h"
 /**
  * _puts - prinst string
- * @str: string to print
+ * @s: string to print
  */
-void _puts(char *str)
+void _puts(char *s)
 {
-    while (str != '\0')
-    {
-        _putchar(str++);
-    }
-    _putchar('\n');
+	while (*s != '\0')
+	{
+		_putchar(*s++);
+	}
+	_putchar('\n');
 }

@@ -1,8 +1,10 @@
 #include <unistd.h>
+#include "main.h"
+
 /**
  * _putchar - prinst as string, followed by new line to stdout
  * @c: character to print
- * Return :on succes 1
+ * Return: 1 0n succes
  */
 int _putchar(char c)
 {
