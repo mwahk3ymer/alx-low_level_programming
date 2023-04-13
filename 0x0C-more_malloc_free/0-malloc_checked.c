@@ -1,7 +1,7 @@
 # include <stdlib.h>
 
 /**
- *mallocc_checked - allocaates mem
+ *malloc_checked - allocaates mem
  *@b: the num of bytes to all
  *
  * Return: a pointer
