@@ -4,7 +4,7 @@
 
 /**
  * print_numbers - prints nums
- * @seperator: string to be printed
+ * @separator: string to be printed
  * @n: number of ints passed to fxn
  * Return: void
  */
