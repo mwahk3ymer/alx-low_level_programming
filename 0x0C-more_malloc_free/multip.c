@@ -9,11 +9,12 @@
  * Return: 1 if the string contains only digits, 0 otherwise
  */
 int is_valid_number(char *num)
+
 {
+	int i;
 	if (!num)
 		return (0);
 
-	int i;
 	for (i = 0; num[i] != '\0'; i++)
 	{
 		if (!isdigit(num[i]))
@@ -32,7 +33,7 @@ int is_valid_number(char *num)
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2, i;
+	int num1, num2;
 	int *result;
 
 	if (argc != 3)
@@ -46,6 +47,9 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+
 	result = malloc(sizeof(int));
 
 	if (!result)

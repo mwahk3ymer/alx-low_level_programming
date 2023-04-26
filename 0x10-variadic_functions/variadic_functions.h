@@ -6,6 +6,12 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+/**
+ * struct printer - struct printer
+ * @symbol: symbol char
+ * @print: printt
+ *
+ */
 typedef struct printer
 {
 	char *symbol;
