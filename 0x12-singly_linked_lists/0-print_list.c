@@ -20,9 +20,9 @@ size_t print_list(const list_t *h)
 		else
 			printf("[0] (nil)\n");
 
-		count++;
-
 		h = h->next;
+
+		count++;
 	}
 
 	return (count);
