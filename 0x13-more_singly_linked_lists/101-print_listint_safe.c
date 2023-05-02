@@ -39,7 +39,7 @@ void print_number(int n)
 size_t print_listint_safe(const listint_t *head)
 {
     const listint_t *slow, *fast;
-    size_t count;
+    size_t nodes, idx = 0;
 
     if (head == NULL)
         exit(98);
