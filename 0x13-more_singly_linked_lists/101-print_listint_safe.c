@@ -1,40 +1,73 @@
 #include "lists.h"
-#include <stdlib.h>
 #include <stdio.h>
-/**
- * free_listint_safe - Frees a listint_t list safely.
- * @head: A pointer to the head of the listint_t list.
- *
- * Return: The size of the list that was freed.
- */
-size_t free_listint_safe(listint_t **head)
-{
-    size_t nodes, i;
-    listint_t *current, *temp;
 
-    nodes = looped_listint_len(*head);
-    if (nodes == 0)
-    {
-        for (i = 0; *head != NULL; i++)
+/**
+ * print_listint_safe - prinsts a linked list
+ * @head: pointer to the head
+ *
+ * Return: nums of nodes nums
+ */
+size_t print_listint_safe(const listint_t *head)
+{
+        const listint_t *slow, *fast, *loop_start;
+        size_t count = 0;
+
+        if (head == NULL)
+                exit(98);
+
+        slow = fast = head;
+
+        while (fast != NULL && fast->next != NULL)
         {
-            temp = (*head)->next;
-            free(*head);
-            *head = temp;
+                printf("[%p] %d\n", (void *)slow, slow->n);
+                count++;
+
+                slow = slow->next;
+                fast = fast->next->next;
+
+                if (slow == fast)
+                {
+                        loop_start = slow;
+                        break;
+                }
         }
-    }
-    else
-    {
-        for (i = 0; i < nodes; i++)
+
+        if (slow != fast)
         {
-            current = *head;
-            printf("[%p] %d\n", (void *)current, current->n);
-            *head = (*head)->next;
-            free(current);
+                while (head != NULL)
+                {
+                        printf("[%p] %d\n", (void *)head, head->n);
+                        count++;
+                        head = head->next;
+                }
+
+                return (count);
         }
-        printf("-> [%p] %d\n", (void *)*head, (*head)->n);
-        free(*head);
-        *head = NULL;
-        i++;
-    }
-    return (i);
+
+        slow = head;
+
+        while (slow != fast)
+        {
+                printf("[%p] %d\n", (void *)slow, slow->n);
+                count++;
+                slow = slow->next;
+                fast = fast->next;
+        }
+
+        printf("[%p] %d\n", (void *)slow, slow->n);
+        count++;
+
+        slow = slow->next;
+
+        while (slow != loop_start)
+        {
+                printf("[%p] %d\n", (void *)slow, slow->n);
+                count++;
+                slow = slow->next;
+        }
+
+        printf("-> [%p] %d\n", (void *)slow, slow->n);
+        count++;
+
+        return (count);
 }
