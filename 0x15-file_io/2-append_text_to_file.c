@@ -8,31 +8,30 @@
  *
  * Return: 1 on succes
  */
-int append_text_to_file(const char *filename, char *text_content);
+int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd, bytes_written = 0;
-	ssize_t len = 0;
+	int fd, bytes_written, text_len = 0;
 
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
+
+	if (text_content != NULL)
+	{
+		 for (text_len = 0; text_content[text_len];)
+			text_len++;
+	}
 
 	fd = open(filename, O_WRONLY | O_APPEND);
 
 	if (fd == -1)
 		return (-1);
 
-	if (text_content)
+	if (text_content != NULL)
 	{
-		while (text_content[len])
-			len++;
+		bytes_written = write(fd, text_content, text_len);
 
-		bytes_written = write(fd, text_content, len);
-
-		if (bytes_written == -1 || bytes_written != len)
-		{
-			close(fd);
+		if (bytes_written == -1 || bytes_written != text_len)
 			return (-1);
-		}
 	}
 
 	close(fd);
