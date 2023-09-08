@@ -26,13 +26,10 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	for (i = 0; i < size; i++)
-	{
 		array[i] = NULL;
 
-		hash_table_created->array = array;
-		hash_table_created->size = size;
-
-	}
+	hash_table_created->array = array;
+	hash_table_created->size = size;
 
 	return (hash_table_created);
 }
